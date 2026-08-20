@@ -1,0 +1,12 @@
+import { Router } from "express";
+import { register, login, me, logout } from "../controllers/authController.js";
+import { authenticate } from "../middleware/auth.js";
+import { validate } from "../middleware/validate.js";
+import { registerSchema, loginSchema } from "../validators/schemas.js";
+import { asyncHandler } from "../utils/asyncHandler.js";
+const r = Router();
+r.post("/register", validate(registerSchema), asyncHandler(register));
+r.post("/login", validate(loginSchema), asyncHandler(login));
+r.get("/me", authenticate, asyncHandler(me));
+r.post("/logout", authenticate, asyncHandler(logout));
+export default r;

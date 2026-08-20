@@ -1,0 +1,338 @@
+@import "tailwindcss";
+
+:root {
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  color: #172033;
+  background: #f6f8fc;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  --primary: #2457d6;
+  --primary-dark: #193fa5;
+  --ink: #172033;
+  --muted: #64748b;
+  --line: #e7ebf3;
+  --surface: #ffffff;
+  --page: #f6f8fc;
+  --success: #16a34a;
+  --warning: #ea8b12;
+  --danger: #dc2626;
+}
+
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  min-width: 320px;
+  background: var(--page);
+}
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+button {
+  cursor: pointer;
+}
+
+.dark {
+  color-scheme: dark;
+}
+.dark body {
+  background: #0b1020;
+  color: #e5e7eb;
+}
+.dark .surface {
+  background: #11182a !important;
+  border-color: #25314a !important;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18);
+}
+.dark .muted {
+  color: #94a3b8 !important;
+}
+.dark input,
+.dark select,
+.dark textarea {
+  background: #0c1324;
+  color: #e5e7eb;
+  border-color: #334155;
+}
+.dark table {
+  color: #e5e7eb;
+}
+.dark .table-head {
+  background: #151e33 !important;
+}
+.dark .sidebar {
+  background: #0b1222 !important;
+}
+.dark .topbar {
+  background: rgba(17, 24, 39, 0.86) !important;
+  border-color: #263247 !important;
+}
+.dark .card-text {
+  color: #e5e7eb !important;
+}
+.dark .page-bg {
+  background: #0b1020 !important;
+}
+.dark .btn-secondary {
+  background: #172137;
+  color: #dbeafe;
+  border-color: #263653;
+}
+
+.page-bg {
+  background: var(--page);
+  min-height: 100vh;
+}
+.surface {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.045);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+.surface:hover {
+  box-shadow: 0 14px 38px rgba(15, 23, 42, 0.07);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 11px;
+  padding: 0.68rem 0.95rem;
+  font-weight: 700;
+  font-size: 0.88rem;
+  border: 1px solid transparent;
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    background 0.18s ease,
+    border-color 0.18s ease;
+}
+.btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+.btn:active:not(:disabled) {
+  transform: translateY(0) scale(0.98);
+}
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.btn-primary {
+  background: linear-gradient(135deg, #2b63df, #214fc2);
+  color: white;
+  box-shadow: 0 8px 20px rgba(36, 87, 214, 0.2);
+}
+.btn-primary:hover:not(:disabled) {
+  box-shadow: 0 12px 26px rgba(36, 87, 214, 0.28);
+}
+.btn-secondary {
+  background: #eef3fb;
+  color: #214a9d;
+  border-color: #e0e8f6;
+}
+.btn-danger {
+  background: #fff0f0;
+  color: #b91c1c;
+  border-color: #fee2e2;
+}
+.btn-success {
+  background: #ebfaef;
+  color: #15803d;
+  border-color: #d1fadf;
+}
+
+.input {
+  width: 100%;
+  border: 1px solid #d9e0ea;
+  border-radius: 11px;
+  padding: 0.72rem 0.85rem;
+  outline: none;
+  background: white;
+  transition:
+    border-color 0.18s ease,
+    box-shadow 0.18s ease,
+    transform 0.18s ease;
+}
+.input:focus {
+  border-color: #5d84c5;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.11);
+}
+.input:hover:not(:focus) {
+  border-color: #b9c5d7;
+}
+.label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+  color: #44506a;
+}
+.dark .label {
+  color: #cbd5e1;
+}
+.badge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 0.28rem 0.6rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.sidebar {
+  box-shadow: 12px 0 35px rgba(15, 23, 42, 0.08);
+}
+.nav-item {
+  position: relative;
+  overflow: hidden;
+}
+.nav-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.08), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.25s ease;
+}
+.nav-item:hover::after {
+  transform: translateX(0);
+}
+
+.topbar {
+  backdrop-filter: blur(14px);
+  background: rgba(255, 255, 255, 0.88);
+}
+
+.page-enter {
+  animation: pageEnter 0.42s cubic-bezier(0.2, 0.75, 0.25, 1) both;
+}
+.fade-up {
+  animation: fadeUp 0.5s cubic-bezier(0.2, 0.75, 0.25, 1) both;
+}
+.stagger > * {
+  animation: fadeUp 0.48s cubic-bezier(0.2, 0.75, 0.25, 1) both;
+}
+.stagger > *:nth-child(2) {
+  animation-delay: 0.04s;
+}
+.stagger > *:nth-child(3) {
+  animation-delay: 0.08s;
+}
+.stagger > *:nth-child(4) {
+  animation-delay: 0.12s;
+}
+.stagger > *:nth-child(5) {
+  animation-delay: 0.16s;
+}
+.stagger > *:nth-child(6) {
+  animation-delay: 0.2s;
+}
+.pulse-soft {
+  animation: pulseSoft 2.6s ease-in-out infinite;
+}
+
+.table-wrap {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.table-wrap table {
+  min-width: 640px;
+}
+.table-row {
+  transition:
+    background 0.16s ease,
+    transform 0.16s ease;
+}
+.table-row:hover {
+  background: rgba(37, 99, 235, 0.035);
+}
+
+.scrollbar::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+.scrollbar::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 20px;
+}
+
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes pulseSoft {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.04);
+  }
+  50% {
+    box-shadow: 0 0 0 7px rgba(37, 99, 235, 0.04);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .hide-mobile {
+    display: none;
+  }
+  .btn {
+    font-size: 0.82rem;
+  }
+  .input {
+    font-size: 0.9rem;
+  }
+  .surface {
+    border-radius: 15px;
+  }
+  .table-wrap table {
+    min-width: 560px;
+  }
+}
