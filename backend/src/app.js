@@ -33,7 +33,7 @@ app.use(
       !origin || origins.includes(origin)
         ? cb(null, true)
         : cb(new Error("CORS origin not allowed")),
-    credentials: false,
+    credentials: true,
   }),
 );
 app.use(express.json({ limit: "1mb" }));
